@@ -1,278 +1,288 @@
-
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#003C9D">
-  <title>三久服務中心</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三久客戶端登錄</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      padding: 24px 16px;
-      font-family: Arial, "Noto Sans TC", sans-serif;
-      background: #f3f6fb;
-      color: #222;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .header {
-      text-align: center;
-      margin-bottom: 24px;
-    }
-
-    .header img {
-      display: block;
-      width: 100%;
-      max-width: 600px;
-      height: auto;
-      margin: 0 auto 16px;
-      border-radius: 8px;
-    }
-
-    .header h1 {
-      color: #003C9D;
-      font-size: 28px;
-      margin: 12px 0;
-    }
-
-    .header p {
-      color: #666;
-      margin: 0;
-    }
-
-    .panels {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .panel {
-      background: #fff;
-      border-radius: 12px;
-      padding: 24px;
-      box-shadow: 0 3px 14px rgba(0, 40, 100, 0.08);
-    }
-
-    .panel h2 {
-      color: #003C9D;
-      font-size: 21px;
-      text-align: center;
-      margin: 0 0 20px;
-    }
-
-    .menu-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      min-height: 48px;
-      margin: 0 0 12px;
-      padding: 12px 16px;
-      border: 1px solid #003C9D;
-      border-radius: 8px;
-      background: #003C9D;
-      color: #fff;
-      font-size: 16px;
-      font-weight: bold;
-      text-align: center;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .menu-button:hover {
-      background: #002b70;
-      transform: translateY(-1px);
-    }
-
-    .menu-button:focus-visible,
-    .footer-link:focus-visible {
-      outline: 3px solid #f4b400;
-      outline-offset: 3px;
-    }
-
-    .footer {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 24px;
-      margin-top: 24px;
-      padding: 20px;
-      background: #fff;
-      border-top: 1px solid #ddd;
-      border-radius: 8px;
-    }
-
-    .footer-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      color: #003C9D;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .footer-link img {
-      display: block;
-      width: 36px;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .footer-link .suncue-logo {
-      width: 110px;
-    }
-
-    .copyright {
-      margin-top: 16px;
-      color: #777;
-      text-align: center;
-      font-size: 12px;
-    }
-
-    @media (max-width: 640px) {
-      body {
-        padding: 16px 12px;
-      }
-
-      .panels {
-        grid-template-columns: 1fr;
-      }
-
-      .panel {
-        padding: 20px;
-      }
-
-      .header h1 {
-        font-size: 24px;
-      }
-
-      .footer {
-        gap: 18px;
-      }
-    }
-  </style>
+    <script charset="utf-8"
+        src="https://static.line-scdn.net/liff/edge/2/sdk.js">
+    </script>
 </head>
 
 <body>
-  <main class="container">
-    <header class="header">
-      <a href="https://line.me/" target="_blank"
-         rel="noopener noreferrer" aria-label="LINE">
-        <img
-          src="https://i.ibb.co/DPkSnSPH/logo.jpg"
-          alt="三久品牌標誌"
-        >
-      </a>
-
-      <h1>三久服務中心</h1>
-      <p>客戶服務與經銷商專區</p>
-    </header>
-
-    <div class="panels">
-      <!-- 客戶端 -->
-      <section class="panel">
-        <h2>客戶服務專區</h2>
-
-        <a class="menu-button"
-           href="https://liff.line.me/2011256691-2xjeJiKc">
-          我的三久
-        </a>
-
-        <a class="menu-button"
-           href="https://line.me/ti/p/Ye9Glgfsea"
-           target="_blank" rel="noopener noreferrer">
-          LINE 叫修
-        </a>
-
-        <a class="menu-button"
-           href="tel:0932606136">
-          電話叫修
-        </a>
-      </section>
-
-      <!-- 經銷商端 -->
-      <section class="panel">
-        <h2>經銷商專區</h2>
-
-        <a class="menu-button"
-           href="https://liff.line.me/2011840923-JULHRr3D">
-          客戶查詢
-        </a>
-
-        <a class="menu-button"
-           href="https://line.me/ti/p/xvyN_puK5u"
-           target="_blank" rel="noopener noreferrer">
-          LINE 業務浩軒
-        </a>
-
-        <a class="menu-button"
-           href="https://suncue.tw/upload/web/PDF/solar_DM.pdf"
-           target="_blank" rel="noopener noreferrer">
-          電子型錄
-        </a>
-
-        <a class="menu-button"
-           href="https://www.youtube.com/@solarsuncue/videos"
-           target="_blank" rel="noopener noreferrer">
-          三久 YouTube
-        </a>
-
-        <a class="menu-button"
-           href="tel:0423397171">
-          打給公司
-        </a>
-      </section>
+    <div style="
+        text-align:center;
+        margin-top:50px;
+        padding:20px;
+        font-family:sans-serif;
+    ">
+        <h2>正在開啟 LINE 分享...</h2>
+        <p id="status">請稍候</p>
     </div>
 
-    <!-- 頁尾連結 -->
-    <footer class="footer">
-      <a class="footer-link"
-         href="https://reurl.cc/EYWlan"
-         target="_blank" rel="noopener noreferrer"
-         aria-label="Facebook">
-        <img
-          src="https://i.ibb.co/Q3GkgjcX/facboo1.png"
-          alt="Facebook"
-        >
-        Facebook
-      </a>
+<script>
+/* =====================================================
+   LIFF 設定
+===================================================== */
 
-      <a class="footer-link"
-         href="https://www.39-suncue.com.tw/"
-         target="_blank" rel="noopener noreferrer">
-        <img
-          src="https://i.ibb.co/XrMsMRdL/Sun.png"
-          alt="三久官網圖示"
-        >
-        官網
-      </a>
+const LIFF_ID = "2011840923-RM2m3qP7";
 
-      <a class="footer-link"
-         href="https://www.suncue.tw/"
-         target="_blank" rel="noopener noreferrer">
-        <img
-          class="suncue-logo"
-          src="https://i.ibb.co/zWpPKR2w/SUNCUE.png"
-          alt="SUNCUE"
-        >
-      </a>
-    </footer>
+/* =====================================================
+   LINE Flex Message
+   以第一段 JSON 的版面為主
+===================================================== */
 
-    <p class="copyright">
-      三久股份有限公司｜客戶服務與經銷商專區
-    </p>
-  </main>
+const flexMessage = {
+    type: "flex",
+    altText: "三久客戶端登錄｜我的三久｜LINE 叫修｜電話叫修",
+
+    contents: {
+        type: "bubble",
+
+        /* 品牌主視覺 */
+        hero: {
+            type: "image",
+            url: "https://i.ibb.co/DPkSnSPH/logo.jpg",
+            size: "full",
+            aspectRatio: "60:11",
+            aspectMode: "cover",
+            gravity: "center",
+            action: {
+                type: "uri",
+                label: "前往 LINE",
+                uri: "https://line.me/"
+            }
+        },
+
+        /* 主要功能按鈕 */
+        body: {
+            type: "box",
+            layout: "vertical",
+            spacing: "none",
+            contents: [
+
+                {
+                    type: "button",
+                    action: {
+                        type: "uri",
+                        label: "我的三久",
+                        uri: "https://liff.line.me/2011256691-2xjeJiKc"
+                    },
+                    style: "primary",
+                    color: "#003C9D",
+                    height: "md"
+                },
+
+                {
+                    type: "box",
+                    layout: "vertical",
+                    contents: [],
+                    height: "10px"
+                },
+
+                {
+                    type: "button",
+                    action: {
+                        type: "uri",
+                        label: "LINE 叫修",
+                        uri: "https://line.me/ti/p/Ye9Glgfsea"
+                    },
+                    style: "primary",
+                    color: "#003C9D",
+                    height: "md"
+                },
+
+                {
+                    type: "box",
+                    layout: "vertical",
+                    contents: [],
+                    height: "10px"
+                },
+
+                {
+                    type: "button",
+                    action: {
+                        type: "uri",
+                        label: "電話 叫修",
+                        uri: "tel:0932606136"
+                    },
+                    style: "primary",
+                    color: "#003C9D",
+                    height: "md"
+                }
+            ]
+        },
+
+        /* 頁尾功能 */
+        footer: {
+            type: "box",
+            layout: "horizontal",
+            spacing: "xs",
+            height: "60px",
+            contents: [
+
+                /* Facebook */
+                {
+                    type: "box",
+                    layout: "horizontal",
+                    height: "60px",
+                    flex: 1,
+                    contents: [
+                        {
+                            type: "image",
+                            url: "https://i.ibb.co/Q3GkgjcX/facboo1.png",
+                            size: "xs",
+                            aspectMode: "fit",
+                            gravity: "center",
+                            action: {
+                                type: "uri",
+                                label: "Facebook",
+                                uri: "https://reurl.cc/EYWlan"
+                            }
+                        }
+                    ]
+                },
+
+                /* 官網 */
+                {
+                    type: "box",
+                    layout: "horizontal",
+                    flex: 2,
+                    spacing: "xs",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    contents: [
+                        {
+                            type: "image",
+                            url: "https://i.ibb.co/XrMsMRdL/Sun.png",
+                            size: "xxs",
+                            aspectMode: "fit",
+                            gravity: "center",
+                            action: {
+                                type: "uri",
+                                label: "官方網站",
+                                uri: "https://www.39-suncue.com.tw/"
+                            }
+                        },
+                        {
+                            type: "text",
+                            text: "官網",
+                            weight: "bold",
+                            size: "lg",
+                            gravity: "center",
+                            action: {
+                                type: "uri",
+                                label: "官方網站",
+                                uri: "https://www.39-suncue.com.tw/"
+                            }
+                        }
+                    ],
+                    action: {
+                        type: "uri",
+                        label: "官方網站",
+                        uri: "https://www.39-suncue.com.tw/"
+                    }
+                },
+
+                /* SUNCUE 品牌 Logo */
+                {
+                    type: "box",
+                    layout: "vertical",
+                    flex: 2,
+                    width: "120px",
+                    contents: [
+                        {
+                            type: "image",
+                            url: "https://i.ibb.co/zWpPKR2w/SUNCUE.png",
+                            size: "md",
+                            aspectMode: "fit",
+                            gravity: "center",
+                            action: {
+                                type: "uri",
+                                label: "SUNCUE 官網",
+                                uri: "https://www.suncue.tw/"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+
+        /* 頁尾分隔線 */
+        styles: {
+            footer: {
+                separator: true,
+                separatorColor: "#DDDDDD"
+            }
+        }
+    }
+};
+
+/* =====================================================
+   LIFF 初始化與分享流程
+===================================================== */
+
+async function startShare() {
+    const status = document.getElementById("status");
+
+    try {
+        status.innerText = "正在初始化 LINE...";
+
+        await liff.init({
+            liffId: LIFF_ID
+        });
+
+        /* 確認是否登入 */
+        if (!liff.isLoggedIn()) {
+            status.innerText = "正在前往 LINE 登入...";
+            liff.login();
+            return;
+        }
+
+        /* 確認分享功能是否可用 */
+        if (!liff.isApiAvailable("shareTargetPicker")) {
+            status.innerText =
+                "目前環境不支援 LINE 分享，請在 LINE 中開啟。";
+            return;
+        }
+
+        status.innerText = "正在開啟分享對象選擇器...";
+
+        const result = await liff.shareTargetPicker([
+            flexMessage
+        ]);
+
+        /* 使用者取消分享 */
+        if (!result) {
+            status.innerText = "已取消分享";
+            return;
+        }
+
+        /* 分享完成 */
+        status.innerText = "分享成功！";
+
+        /* 分享完成後關閉 LIFF 視窗 */
+        if (liff.isInClient()) {
+            setTimeout(() => {
+                liff.closeWindow();
+            }, 800);
+        }
+
+    } catch (error) {
+        console.error("LIFF 分享錯誤：", error);
+
+        status.innerText = "分享發生錯誤，請重新嘗試。";
+
+        alert(
+            "LINE 分享發生錯誤：\n\n" +
+            (error.message || String(error))
+        );
+    }
+}
+
+/* 啟動 */
+startShare();
+</script>
 </body>
 </html>
