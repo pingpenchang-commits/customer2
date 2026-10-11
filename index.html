@@ -116,108 +116,104 @@ const flexMessage = {
 
         /* 頁尾功能 */
         footer: {
+            footer: {
+    type: "box",
+    layout: "horizontal",
+    contents: [
+        /* Facebook 圖片 */
+        {
             type: "box",
             layout: "horizontal",
-            spacing: "xs",
-            height: "60px",
             contents: [
-
-                /* Facebook */
                 {
-                    type: "box",
-                    layout: "horizontal",
-                    height: "60px",
-                    flex: 1,
-                    contents: [
-                        {
-                            type: "image",
-                            url: "https://i.ibb.co/Q3GkgjcX/facboo1.png",
-                            size: "60px",
-                            align: "start",
-                            offsetBottom: "10px",
-                            aspectMode: "fit",
-                            gravity: "top",
-                            action: {
-                                type: "uri",
-                                label: "Facebook",
-                                uri: "https://reurl.cc/EYWlan"
-                            }
-                        }
-                    ]
-                },
-
-                /* 官網 */
-                {
-                    type: "box",
-                    layout: "horizontal",
-                    flex: 2,
-                    spacing: "xs",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    contents: [
-                        {
-                            type: "image",
-                            url: "https://i.ibb.co/XrMsMRdL/Sun.png",
-                            size: "xxs",
-                            aspectMode: "fit",
-                            gravity: "top",
-                            action: {
-                                type: "uri",
-                                label: "官方網站",
-                                uri: "https://www.39-suncue.com.tw/"
-                            }
-                        },
-                        {
-                            type: "text",
-                            text: "官網",
-                            weight: "bold",
-                            size: "lg",
-                            gravity: "center",
-                            action: {
-                                type: "uri",
-                                label: "官方網站",
-                                uri: "https://www.39-suncue.com.tw/"
-                            }
-                        }
-                    ],
+                    type: "image",
+                    url: "https://i.ibb.co/Q3GkgjcX/facboo1.png",
+                    size: "xs",
+                    aspectMode: "fit",
+                    align: "start",
+                    offsetBottom: "10px",
+                    gravity: "top",
                     action: {
                         type: "uri",
-                        label: "官方網站",
+                        label: "Facebook",
+                        uri: "https://reurl.cc/EYWlan"
+                    }
+                }
+            ],
+            height: "60px",
+            flex: 1
+        },
+
+        /* 官網圖示與文字 */
+        {
+            type: "box",
+            layout: "horizontal",
+            contents: [
+                {
+                    type: "image",
+                    url: "https://i.ibb.co/XrMsMRdL/Sun.png",
+                    size: "xxs",
+                    aspectMode: "fit",
+                    align: "start",
+                    gravity: "center",
+                    action: {
+                        type: "uri",
+                        label: "官網",
                         uri: "https://www.39-suncue.com.tw/"
                     }
                 },
-
-                /* SUNCUE 品牌 Logo */
                 {
-                    type: "box",
-                    layout: "vertical",
-                    flex: 2,
-                    width: "120px",
-                    contents: [
-                        {
-                            type: "image",
-                            url: "https://i.ibb.co/zWpPKR2w/SUNCUE.png",
-                            size: "md",
-                            aspectMode: "fit",
-                            gravity: "top",
-                            action: {
-                                type: "uri",
-                                label: "SUNCUE 官網",
-                                uri: "https://www.suncue.tw/"
-                            }
-                        }
-                    ]
+                    type: "text",
+                    text: "官網",
+                    weight: "bold",
+                    align: "start",
+                    gravity: "center",
+                    size: "lg",
+                    action: {
+                        type: "uri",
+                        label: "官網",
+                        uri: "https://www.39-suncue.com.tw/"
+                    }
                 }
-            ]
+            ],
+            offsetEnd: "16px",
+            flex: 2
         },
 
-        /* 頁尾分隔線 */
-        styles: {
-            footer: {
-                separator: true,
-                separatorColor: "#DDDDDD"
-            }
+        /* SUNCUE Logo */
+        {
+            type: "box",
+            layout: "vertical",
+            contents: [
+                {
+                    type: "image",
+                    url: "https://i.ibb.co/zWpPKR2w/SUNCUE.png",
+                    size: "md",
+                    aspectMode: "fit",
+                    offsetBottom: "25px",
+                    offsetEnd: "10px",
+                    gravity: "top",
+                    action: {
+                        type: "uri",
+                        label: "SUNCUE 官網",
+                        uri: "https://www.suncue.tw/"
+                    }
+                }
+            ],
+            width: "120px",
+            flex: 2,
+            offsetBottom: "5px"
         }
+    ],
+    spacing: "xs",
+    height: "60px"
+},
+styles: {
+    footer: {
+        separatorColor: "#DDDDDD",
+        separator: true
+    }
+}
     }
 };
 
