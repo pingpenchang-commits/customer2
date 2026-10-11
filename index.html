@@ -1,46 +1,75 @@
+
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>三久客戶端登錄</title>
 
-    <script charset="utf-8"
+    <title>三久電子名片分享</title>
+
+    <!-- LINE LIFF SDK -->
+    <script
+        charset="utf-8"
         src="https://static.line-scdn.net/liff/edge/2/sdk.js">
     </script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-color: #FFFFFF;
+        }
+
+        .status-container {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+        }
+
+        #status {
+            white-space: pre-line;
+            line-height: 1.8;
+        }
+    </style>
 </head>
 
 <body>
-    <div style="
-        text-align:center;
-        margin-top:50px;
-        padding:20px;
-        font-family:sans-serif;
-    ">
+
+    <div class="status-container">
         <h2>正在開啟 LINE 分享...</h2>
         <p id="status">請稍候</p>
     </div>
 
 <script>
+
 /* =====================================================
-   LIFF 設定
+   LIFF ID
 ===================================================== */
 
-const LIFF_ID = "2011840923-RM2m3qP7";
+const LIFF_ID = "2011256691-2xjeJiKc";
+
 
 /* =====================================================
    LINE Flex Message
-   以第一段 JSON 的版面為主
+   第一段 JSON 的版面 + 第二段的 LIFF 分享功能
 ===================================================== */
 
 const flexMessage = {
+
     type: "flex",
-    altText: "三久客戶端登錄｜我的三久｜LINE 叫修｜電話叫修",
+
+    altText: "三久電子名片｜我的三久｜LINE 叫修｜電話叫修",
 
     contents: {
+
         type: "bubble",
 
-        /* 品牌主視覺 */
+        /* =================================================
+           HERO：品牌主圖
+        ================================================= */
+
         hero: {
             type: "image",
             url: "https://i.ibb.co/DPkSnSPH/logo.jpg",
@@ -55,195 +84,282 @@ const flexMessage = {
             }
         },
 
-        /* 主要功能按鈕 */
+
+        /* =================================================
+           BODY：三個主要功能按鈕
+        ================================================= */
+
         body: {
+
             type: "box",
             layout: "vertical",
             spacing: "none",
+
             contents: [
 
-                {
-                    type: "button",
-                    action: {
-                        type: "uri",
-                        label: "我的三久",
-                        uri: "https://liff.line.me/2011256691-2xjeJiKc"
-                    },
-                    style: "primary",
-                    color: "#003C9D",
-                    height: "md"
-                },
+                /* 我的三久 */
 
                 {
                     type: "box",
-                    layout: "vertical",
+                    layout: "horizontal",
+                    contents: [
+                        {
+                            type: "button",
+                            action: {
+                                type: "uri",
+                                label: "我的三久",
+                                uri: "https://liff.line.me/2011256691-2xjeJiKc"
+                            },
+                            style: "primary",
+                            color: "#003C9D",
+                            height: "md"
+                        }
+                    ]
+                },
+
+                /* 間距 */
+
+                {
+                    type: "box",
+                    layout: "horizontal",
                     contents: [],
                     height: "10px"
                 },
 
-                {
-                    type: "button",
-                    action: {
-                        type: "uri",
-                        label: "LINE 叫修",
-                        uri: "https://line.me/ti/p/Ye9Glgfsea"
-                    },
-                    style: "primary",
-                    color: "#003C9D",
-                    height: "md"
-                },
+                /* LINE 叫修 */
 
                 {
                     type: "box",
-                    layout: "vertical",
+                    layout: "horizontal",
+                    contents: [
+                        {
+                            type: "button",
+                            action: {
+                                type: "uri",
+                                label: "LINE 叫修",
+                                uri: "https://line.me/ti/p/Ye9Glgfsea"
+                            },
+                            style: "primary",
+                            color: "#003C9D",
+                            height: "md"
+                        }
+                    ]
+                },
+
+                /* 間距 */
+
+                {
+                    type: "box",
+                    layout: "horizontal",
                     contents: [],
                     height: "10px"
                 },
 
+                /* 電話 叫修 */
+
                 {
-                    type: "button",
-                    action: {
-                        type: "uri",
-                        label: "電話 叫修",
-                        uri: "tel:0932606136"
-                    },
-                    style: "primary",
-                    color: "#003C9D",
-                    height: "md"
+                    type: "box",
+                    layout: "horizontal",
+                    contents: [
+                        {
+                            type: "button",
+                            action: {
+                                type: "uri",
+                                label: "電話 叫修",
+                                uri: "tel:0932606136"
+                            },
+                            style: "primary",
+                            color: "#003C9D",
+                            height: "md"
+                        }
+                    ]
                 }
+
             ]
         },
 
-        /* 頁尾功能 */
+
+        /* =================================================
+           FOOTER：修正版頁尾
+           保留原始圖片網址及偏移設定
+        ================================================= */
+
         footer: {
-            footer: {
-    type: "box",
-    layout: "horizontal",
-    contents: [
-        /* Facebook 圖片 */
-        {
+
             type: "box",
             layout: "horizontal",
-            contents: [
-                {
-                    type: "image",
-                    url: "https://i.ibb.co/Q3GkgjcX/facboo1.png",
-                    size: "xs",
-                    aspectMode: "fit",
-                    align: "start",
-                    offsetBottom: "10px",
-                    gravity: "top",
-                    action: {
-                        type: "uri",
-                        label: "Facebook",
-                        uri: "https://reurl.cc/EYWlan"
-                    }
-                }
-            ],
+            spacing: "xs",
             height: "60px",
-            flex: 1
-        },
 
-        /* 官網圖示與文字 */
-        {
-            type: "box",
-            layout: "horizontal",
             contents: [
+
+                /* -----------------------------------------
+                   1. Facebook
+                ----------------------------------------- */
+
                 {
-                    type: "image",
-                    url: "https://i.ibb.co/XrMsMRdL/Sun.png",
-                    size: "xxs",
-                    aspectMode: "fit",
-                    align: "start",
-                    gravity: "center",
-                    action: {
-                        type: "uri",
-                        label: "官網",
-                        uri: "https://www.39-suncue.com.tw/"
-                    }
+                    type: "box",
+                    layout: "horizontal",
+                    contents: [
+                        {
+                            type: "image",
+                            url: "https://i.ibb.co/Q3GkgjcX/facboo1.png",
+                            size: "xs",
+                            aspectMode: "fit",
+                            align: "start",
+                            offsetBottom: "10px",
+                            gravity: "top",
+                            action: {
+                                type: "uri",
+                                label: "Facebook",
+                                uri: "https://reurl.cc/EYWlan"
+                            }
+                        }
+                    ],
+                    height: "60px",
+                    flex: 1
                 },
+
+
+                /* -----------------------------------------
+                   2. 官網圖示 + 官網文字
+                ----------------------------------------- */
+
                 {
-                    type: "text",
-                    text: "官網",
-                    weight: "bold",
-                    align: "start",
-                    gravity: "center",
-                    size: "lg",
-                    action: {
-                        type: "uri",
-                        label: "官網",
-                        uri: "https://www.39-suncue.com.tw/"
-                    }
+                    type: "box",
+                    layout: "horizontal",
+                    contents: [
+                        {
+                            type: "image",
+                            url: "https://i.ibb.co/XrMsMRdL/Sun.png",
+                            size: "xxs",
+                            aspectMode: "fit",
+                            align: "start",
+                            gravity: "center",
+                            action: {
+                                type: "uri",
+                                label: "官網",
+                                uri: "https://www.39-suncue.com.tw/"
+                            }
+                        },
+                        {
+                            type: "text",
+                            text: "官網",
+                            weight: "bold",
+                            align: "start",
+                            gravity: "center",
+                            size: "lg",
+                            action: {
+                                type: "uri",
+                                label: "官網",
+                                uri: "https://www.39-suncue.com.tw/"
+                            }
+                        }
+                    ],
+                    offsetEnd: "16px",
+                    flex: 2
+                },
+
+
+                /* -----------------------------------------
+                   3. SUNCUE Logo
+                ----------------------------------------- */
+
+                {
+                    type: "box",
+                    layout: "vertical",
+                    contents: [
+                        {
+                            type: "image",
+                            url: "https://i.ibb.co/zWpPKR2w/SUNCUE.png",
+                            size: "md",
+                            aspectMode: "fit",
+                            offsetBottom: "25px",
+                            offsetEnd: "10px",
+                            gravity: "top",
+                            action: {
+                                type: "uri",
+                                label: "SUNCUE 官網",
+                                uri: "https://www.suncue.tw/"
+                            }
+                        }
+                    ],
+                    width: "120px",
+                    flex: 2,
+                    offsetBottom: "5px"
                 }
-            ],
-            offsetEnd: "16px",
-            flex: 2
+
+            ]
         },
 
-        /* SUNCUE Logo */
-        {
-            type: "box",
-            layout: "vertical",
-            contents: [
-                {
-                    type: "image",
-                    url: "https://i.ibb.co/zWpPKR2w/SUNCUE.png",
-                    size: "md",
-                    aspectMode: "fit",
-                    offsetBottom: "25px",
-                    offsetEnd: "10px",
-                    gravity: "top",
-                    action: {
-                        type: "uri",
-                        label: "SUNCUE 官網",
-                        uri: "https://www.suncue.tw/"
-                    }
-                }
-            ],
-            width: "120px",
-            flex: 2,
-            offsetBottom: "5px"
+
+        /* =================================================
+           STYLES
+        ================================================= */
+
+        styles: {
+            footer: {
+                separatorColor: "#DDDDDD",
+                separator: true
+            }
         }
-    ],
-    spacing: "xs",
-    height: "60px"
-},
-styles: {
-    footer: {
-        separatorColor: "#DDDDDD",
-        separator: true
+
     }
-}
-    }
+
 };
 
+
 /* =====================================================
-   LIFF 初始化與分享流程
+   LIFF 初始化與分享
 ===================================================== */
 
 async function startShare() {
+
     const status = document.getElementById("status");
 
     try {
+
         status.innerText = "正在初始化 LINE...";
 
         await liff.init({
             liffId: LIFF_ID
         });
 
-        /* 確認是否登入 */
+        console.log("LIFF 初始化成功");
+
+        /* 檢查登入狀態 */
+
         if (!liff.isLoggedIn()) {
+
             status.innerText = "正在前往 LINE 登入...";
+
             liff.login();
+
             return;
         }
 
-        /* 確認分享功能是否可用 */
-        if (!liff.isApiAvailable("shareTargetPicker")) {
+        /* 檢查分享功能 */
+
+        const shareAvailable =
+            liff.isApiAvailable("shareTargetPicker");
+
+        console.log("LIFF 執行環境：", {
+            inClient: liff.isInClient(),
+            loggedIn: liff.isLoggedIn(),
+            shareAvailable: shareAvailable,
+            lineVersion: liff.getLineVersion()
+        });
+
+        if (!shareAvailable) {
+
             status.innerText =
-                "目前環境不支援 LINE 分享，請在 LINE 中開啟。";
+                "目前環境不支援 LINE 分享。\n\n" +
+                "請確認 LIFF 設定，並嘗試在 LINE App 中開啟。";
+
             return;
         }
+
+        /* 開啟分享對象選擇器 */
 
         status.innerText = "正在開啟分享對象選擇器...";
 
@@ -252,35 +368,55 @@ async function startShare() {
         ]);
 
         /* 使用者取消分享 */
+
         if (!result) {
+
             status.innerText = "已取消分享";
+
             return;
         }
 
         /* 分享完成 */
+
         status.innerText = "分享成功！";
 
-        /* 分享完成後關閉 LIFF 視窗 */
+        console.log("分享成功");
+
+        /* 分享完成後關閉 LIFF */
+
         if (liff.isInClient()) {
-            setTimeout(() => {
+
+            setTimeout(function () {
                 liff.closeWindow();
             }, 800);
+
         }
 
     } catch (error) {
+
         console.error("LIFF 分享錯誤：", error);
 
-        status.innerText = "分享發生錯誤，請重新嘗試。";
+        status.innerText =
+            "LINE 分享發生錯誤：\n" +
+            (error.message || String(error));
 
         alert(
             "LINE 分享發生錯誤：\n\n" +
             (error.message || String(error))
         );
+
     }
+
 }
 
-/* 啟動 */
+
+/* =====================================================
+   啟動程式
+===================================================== */
+
 startShare();
+
 </script>
+
 </body>
 </html>
